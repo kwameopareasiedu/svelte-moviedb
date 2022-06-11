@@ -1,8 +1,10 @@
 <script lang="ts">
+  import "./App.scss";
   import LandingPage from "./LandingPage.svelte";
   import _404 from "./404.svelte";
   import Router from "svelte-spa-router";
   import { ROUTE_LANDING, ROUTE_MOVIES } from "../config";
+  import MoviesPage from "./MoviesPage.svelte";
 </script>
 
 <svelte:head>
@@ -19,20 +21,11 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap"
     rel="stylesheet" />
-
-  <style>
-    html,
-    body,
-    #app {
-      height: 100%;
-      font-family: "Ubuntu", sans-serif;
-    }
-  </style>
 </svelte:head>
 
 <Router
   routes={{
     [ROUTE_LANDING]: LandingPage,
-    [ROUTE_MOVIES]: _404,
+    [ROUTE_MOVIES]: MoviesPage,
     "*": _404
   }} />
