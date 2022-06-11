@@ -1,5 +1,7 @@
 <script>
   import cinema from "../assets/cinema.jpg";
+  import { ROUTE_MOVIES } from "../config";
+  import { hashRoute } from "../utils";
 </script>
 
 <div id="landing-page" class="h-100">
@@ -60,9 +62,12 @@
         </i>
       </p>
 
-      <button type="button" class="btn btn-primary btn-lg rounded-pill px-4">
+      <a
+        type="button"
+        href={hashRoute(ROUTE_MOVIES)}
+        class="btn btn-primary btn-lg rounded-pill px-4">
         <small class="text-white fw-bold">See Movies</small>
-      </button>
+      </a>
     </div>
   </main>
 </div>

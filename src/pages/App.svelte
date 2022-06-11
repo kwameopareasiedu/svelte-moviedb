@@ -1,5 +1,8 @@
 <script lang="ts">
   import LandingPage from "./LandingPage.svelte";
+  import _404 from "./404.svelte";
+  import Router from "svelte-spa-router";
+  import { ROUTE_LANDING, ROUTE_MOVIES } from "../config";
 </script>
 
 <svelte:head>
@@ -27,4 +30,9 @@
   </style>
 </svelte:head>
 
-<LandingPage />
+<Router
+  routes={{
+    [ROUTE_LANDING]: LandingPage,
+    [ROUTE_MOVIES]: _404,
+    "*": _404
+  }} />
