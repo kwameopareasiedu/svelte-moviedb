@@ -24,23 +24,27 @@ function createMovieStore() {
 
   function fetchMovies(page = 1) {
     axios
-      .get(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`)
+      .get(
+        `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&page=${page}`
+      )
       .then((res) => {
         update((s) => {
           delete s.itemsError;
-          s.itemsPage = s.itemsPage + 1;
+          s.itemsPage = page;
           s.itemsStatus = ActionStatus.success;
-          s.items = res.data.results.map((d) => {
-            return {
-              id: d.id,
-              title: d.title,
-              description: d.overview,
-              posterUrl: POSTER_URL + d.poster_path,
-              releaseDate: d.release_date,
-              rating: d.vote_average,
-              votes: d.vote_count
-            } as Movie;
-          });
+          s.items.push(
+            ...res.data.results.map((d) => {
+              return {
+                id: d.id,
+                title: d.title,
+                description: d.overview,
+                posterUrl: POSTER_URL + d.poster_path,
+                releaseDate: d.release_date,
+                rating: d.vote_average,
+                votes: d.vote_count
+              } as Movie;
+            })
+          );
 
           return { ...s };
         });
@@ -55,6 +59,7 @@ function createMovieStore() {
 
     update((s) => {
       s.itemsStatus = ActionStatus.pending;
+      s.items = page === 1 ? [] : s.items;
       return { ...s };
     });
   }
