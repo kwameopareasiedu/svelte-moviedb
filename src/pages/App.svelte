@@ -3,8 +3,9 @@
   import LandingPage from "./LandingPage.svelte";
   import _404 from "./404.svelte";
   import Router from "svelte-spa-router";
-  import { ROUTE_LANDING, ROUTE_MOVIES } from "../config";
+  import { ROUTE_LANDING, ROUTE_MOVIES, ROUTE_MOVIE } from "../config";
   import MoviesPage from "./MoviesPage.svelte";
+  import MovieDetailsPage from "./MovieDetailsPage.svelte";
 </script>
 
 <svelte:head>
@@ -27,5 +28,6 @@
   routes={{
     [ROUTE_LANDING]: LandingPage,
     [ROUTE_MOVIES]: MoviesPage,
+    [ROUTE_MOVIE]: MovieDetailsPage,
     "*": _404
   }} />

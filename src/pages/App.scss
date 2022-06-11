@@ -8,3 +8,8 @@ body,
 .with-navbar {
   padding-top: 72px;
 }
+
+.grid-center {
+  display: grid;
+  place-content: center;
+}

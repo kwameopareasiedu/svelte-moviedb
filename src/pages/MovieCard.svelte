@@ -1,7 +1,9 @@
 <script lang="ts">
-  import type Movie from "../models/movie";
+  import { MovieOverview } from "../models/movie";
+  import { hashRoute } from "../utils";
+  import { ROUTE_MOVIE } from "../config";
 
-  export let movie: Movie;
+  export let movie: MovieOverview;
 </script>
 
 <div class="movie-card card rounded-0">
@@ -15,7 +17,7 @@
     <p class="mb-0">
       <small
         >{movie.description.substring(0, 100)}...
-        <a href=""
+        <a href={hashRoute(ROUTE_MOVIE).replace(":id", movie.id.toString())}
           ><i class="fw-bold d-inline-block flex-nowrap">Read more</i></a
         ></small>
     </p>
