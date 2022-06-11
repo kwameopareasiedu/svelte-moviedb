@@ -7,7 +7,9 @@
     <div
       id="left-banner-content"
       class="h-100 py-5 d-flex flex-column justify-content-center justify-content-center justify-content-md-between align-items-center">
-      <h2 class="d-none d-md-block"><span class="fw-light">Movie</span>DB</h2>
+      <h2 class="d-none d-md-block">
+        <span class="fw-light">Movie</span><strong>DB</strong>
+      </h2>
 
       <div id="icons" class="d-flex flex-column">
         <button class="btn btn-link mb-2">
@@ -23,7 +25,9 @@
 
       <footer class="d-none d-md-block">
         <p class="mb-0">
-          <small>Made by Kwame</small>
+          <small>
+            <i>Made by <strong>Kwame</strong></i>
+          </small>
         </p>
       </footer>
     </div>
@@ -36,7 +40,7 @@
   <main class="h-100">
     <div class="container h-100 py-5">
       <p class="mb-0 opacity-50">Welcome to the</p>
-      <h1 class="mb-4">Awesome <br />Movie DB</h1>
+      <h1 class="fw-bold lh-1 mb-4">Awesome <br />Movie DB</h1>
 
       <p class="mb-2">
         <i>
@@ -50,7 +54,8 @@
       <p class="mb-4">
         <i>
           <small>
-            You can also click on a movie to see more details about it.
+            When you click on a movie, you are redirected to the details page to
+            see more about it. This utilizes <code>svelte-spa-router</code>.
           </small>
         </i>
       </p>
@@ -65,10 +70,6 @@
 <style lang="scss">
   #landing-page {
     position: relative;
-
-    h1 {
-      font-size: 2.5rem;
-    }
 
     #left-banner {
       position: fixed;
@@ -111,6 +112,15 @@
     main {
       display: grid;
       place-content: center;
+      padding-left: 50px;
+
+      h1 {
+        font-size: 2.5rem;
+
+        @media screen and (min-width: 768px) {
+          font-size: 3.5rem;
+        }
+      }
 
       @media screen and (min-width: 768px) {
         padding-left: 525px;
